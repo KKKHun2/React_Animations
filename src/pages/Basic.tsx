@@ -59,7 +59,6 @@ function Basic() {
   const prevPlease = () => {
     setBack(true)
     setVisible((prev) => (prev === 1 ? 1 : prev - 1));}
-    
    const explan= [
    {key:1, text:"어쩌고1"},
    {key:2, text:"어쩌고2"},
