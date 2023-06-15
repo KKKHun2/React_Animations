@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { text } from "node:stream/consumers";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { AiOutlineArrowRight,AiOutlineArrowLeft } from "react-icons/ai";
 
 const Wrapper = styled(motion.div)`
   height: 100vh;
@@ -10,22 +10,44 @@ const Wrapper = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  background-color:#2f3640;
+  flex-direction: row;
+  background-color:#1a7dce
 `;
 
+const LeftArrow = styled(AiOutlineArrowLeft)`
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(102, 109, 244, 0.1);
+    border-radius: 100px;
+    height:100px;
+    width:100px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 50px;
+    cursor:pointer;
+`;
+const RightArrow = styled(AiOutlineArrowRight)`
+display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(102, 109, 244, 0.1);
+    border-radius: 100px;
+    height:100px;
+    width:100px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 50px;
+    cursor:pointer;
+`;
 const Box = styled(motion.div)`
   width: 400px;
   height: 200px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #6ca8e17f;
   border-radius: 40px;
-  top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 28px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
-  margin-bottom: 50px;
 `;
 
 const box = {
@@ -73,6 +95,7 @@ function Basic() {
 ]
   return (
     <Wrapper>
+        <LeftArrow onClick={prevPlease}/>
       <AnimatePresence>
         visible ? (
             <Link to={`${visible}`}>
@@ -94,8 +117,7 @@ function Basic() {
           ) : null
         
       </AnimatePresence>
-      <button onClick={nextPlease}>next</button>
-      <button onClick={prevPlease}>prev</button>
+      <RightArrow onClick={nextPlease} />
     </Wrapper>
   );
 }
